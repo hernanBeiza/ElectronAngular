@@ -1,0 +1,85 @@
+{
+  "name": "electron-angular",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "build:prod": "ng build --prod",
+    "build:dev": "ng build --configuration=dev",
+    "electron": "NODE_ENV=DEV electron . ",
+    "pack": "npm run clean & NODE_ENV=PROD npm run build && electron-builder",
+    "pack:dev": "NODE_ENV=DEV npm run build:dev && electron-builder --dir",
+    "pack:prod": "NODE_ENV=PROD npm run build && electron-builder --dir",
+    "dist": "NODE_ENV=PROD npm run build && electron-builder",
+    "clean": "rimraf ./packaged ./dist"
+  },
+  "description": "Aplicación para ",
+  "author": "Hernán Beiza <hernan@hiperactivo.cl>",
+  "build": {
+    "appId": "cl.hiperactivo.app",
+    "productName": "MiApp",
+    "directories": {
+      "buildResources": "./icons/icon.icns",
+      "output": "./packaged"
+    },
+    "mac": {
+      "icon": "./icons/icon.icns",
+      "category": "your.app.category.type"
+    },
+    "linux": {
+      "icon": "./icons/icon.icns",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "./icons/icon.ico"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~7.2.0",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler": "~7.2.0",
+    "@angular/core": "~7.2.0",
+    "@angular/forms": "~7.2.0",
+    "@angular/platform-browser": "~7.2.0",
+    "@angular/platform-browser-dynamic": "~7.2.0",
+    "@angular/router": "~7.2.0",
+    "core-js": "^2.5.4",
+    "rxjs": "~6.3.3",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular/cli": "~7.3.9",
+    "@angular/compiler-cli": "~7.2.0",
+    "@angular/language-service": "~7.2.0",
+    "@types/node": "~8.9.4",
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "codelyzer": "~4.5.0",
+    "electron": "^5.0.6",
+    "electron-builder": "^21.0.15",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.4.0",
+    "rimraf": "^2.6.3",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.2.2"
+  }
+}
